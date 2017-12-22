@@ -8,12 +8,14 @@ Module to create, parse and evaluate YaPPL-Policies.
 
 ## FUNCTIONS
 * parse(json_policy):
+
       Parse a YaPPL-Policy in JSON format into a python object.
 
       arguments:
       json_policy -- the policy to parse
 
 * validate(policy):
+
       Validate a passed YaPPL-Policy against the Standard YaPPL-Schema.
 
       arguments:
@@ -24,18 +26,21 @@ Module to create, parse and evaluate YaPPL-Policies.
 Methods defined here:
 
 * archiveRule(self, ruleID):
+
       Archive a Rule for potential audits.
 
       arguments:
       ruleID -- the ID of the rule to be archived
 
 * createPolicy(self):
+
       Create a YaPPL compliant Policy in JSON format from the respective python object.
 
       arguments:
       none
 
 * getExcludedPurpose(self):
+
       Return ALL excluded Purposes.
 
       arguments:
@@ -45,6 +50,7 @@ Methods defined here:
       should be prohibited
 
 * getExcludedUtilizer(self):
+
       Return ALL excluded Utilizers.
 
       arguments:
@@ -54,6 +60,7 @@ Methods defined here:
       be prohibited
 
 * getTrRules(self):
+
       Return all Transformation Rules.
 
       arguments:
@@ -69,6 +76,7 @@ Methods defined here:
       data transfer.
 
 * newRule(self, permittedPurpose, excludedPurpose, permittedUtilizer, excludedUtilizer, transformation):
+
       Append a new Rule to a Preference.
 
       arguments:
@@ -79,6 +87,7 @@ Methods defined here:
       transformation -- [list] of transformation objects
 
 * updateRule(self, ruleID, permittedPurpose=[], excludedPurpose=[], permittedUtilizer=[], excludedUtilizer=[], transformation=[]):
+
       Update a Rule with new Values.
 
       arguments:
