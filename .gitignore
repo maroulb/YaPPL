@@ -1,0 +1,5 @@
+oldStuff/
+tests/
+.cache/
+.DS_Store
+*.pyc

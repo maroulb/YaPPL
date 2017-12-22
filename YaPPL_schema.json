@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "_id": {"type": "number"},
+    "preference": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rule": {
+            "type": "object",
+            "properties": {
+              "purpose": {
+                "type": "object",
+                "properties": {
+                  "permitted": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "uniqueItems": true,
+                    "default": []
+                  },
+                  "excluded": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "uniqueItems": true,
+                    "default": []
+                  }
+                },
+                "required": ["permitted", "excluded"],
+                "minProperties": 2,
+                "maxProperties": 2,
+                "additionalProperties": false
+              },
+              "utilizer": {
+                "type": "object",
+                "properties": {
+                  "permitted": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "uniqueItems": true,
+                    "default": []
+                  },
+                  "excluded": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "uniqueItems": true,
+                    "default": []
+                  }
+                },
+                "required": ["permitted", "excluded"],
+                "minProperties": 2,
+                "maxProperties": 2,
+                "additionalProperties": false
+              },
+              "transformation": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "attribute": {"type": "string"},
+                    "tr_func": {
+                      "type": "string",
+                      "default": ""
+                    }
+                  },
+                  "dependencies": {
+                    "attribute": ["tr_func"],
+                    "tr_func": ["attribute"]
+                  },
+                  "minProperties": 2,
+                  "maxProperties": 2,
+                  "additionalProperties": false
+                },
+                "uniqueItems": true,
+                "default": []
+              },
+              "valid_from": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "exp_date": {
+                "type": "string",
+                "format": "date-time",
+                "default": "0000-00-00T00:00:00.00Z"
+              }
+            },
+            "required": ["purpose", "utilizer", "transformation", "valid_from", "exp_date"],
+            "minProperties": 5,
+            "maxProperties": 5,
+            "additionalProperties": false
+          }
+        }
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    }
+  }
+}
