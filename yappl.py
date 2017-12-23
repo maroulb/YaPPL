@@ -337,7 +337,7 @@ class YaPPL:
     def getRule(self, ruleID):
         return self.__Preference[ruleID]
 
-    def getPurpose(self):  # TODO: avoid multiple stated purposes
+    def getPurpose(self):
         purpose = {}
         purpose['permitted'] = []
         purpose['excluded'] = []
@@ -346,7 +346,8 @@ class YaPPL:
                 if self.__Preference[i]['Purpose']['permitted'][j] not in purpose['permitted']:
                     purpose['permitted'].append(str(self.__Preference[i]['Purpose']['permitted'][j]))
             for j in range(len(self.__Preference[i]['Purpose']['excluded'])):
-                purpose['excluded'].append(str(self.__Preference[i]['Purpose']['excluded'][j]))
+                if self.__Preference[i]['Purpose']['excluded'][j] not in purpose['excluded']:
+                    purpose['excluded'].append(str(self.__Preference[i]['Purpose']['excluded'][j]))
         return purpose
 
     def getPermittedPurpose(self):
@@ -354,13 +355,14 @@ class YaPPL:
         permittedPurpose = purpose['permitted']
         return permittedPurpose
 
-    def getUtilizer(self):  # TODO: avoid multiple stated utilizers
+    def getUtilizer(self):
         utilizer = {}
         utilizer['permitted'] = []
         utilizer['excluded'] = []
         for i in range(len(self.__Preference)):
             for j in range(len(self.__Preference[i]['Utilizer']['permitted'])):
-                utilizer['permitted'].append(str(self.__Preference[i]['Utilizer']['permitted'][j]))
+                if self.__Preference[i]['Utilizer']['permitted'][j] not in utilizer['permitted']:
+                    utilizer['permitted'].append(str(self.__Preference[i]['Utilizer']['permitted'][j]))
             for j in range(len(self.__Preference[i]['Utilizer']['excluded'])):
                 if self.__Preference[i]['Utilizer']['excluded'][j] not in utilizer['excluded']:
                     utilizer['excluded'].append(str(self.__Preference[i]['Utilizer']['excluded'][j]))
