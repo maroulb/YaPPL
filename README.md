@@ -21,6 +21,9 @@ Module to create, parse and evaluate YaPPL-Policies.
       arguments:
       policy -- the YaPPL-Policy to validate
 
+      In order to validate a policy, a JSON file containing the Schema has to
+      be present
+
 
 ## class YaPPL
 Methods defined here:
