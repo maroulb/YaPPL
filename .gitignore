@@ -2,4 +2,6 @@ oldStuff/
 tests/
 .cache/
 .DS_Store
+RWtest.py
+test_policy*.json
 *.pyc

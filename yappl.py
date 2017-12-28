@@ -3,6 +3,7 @@
 import json
 import jsonschema
 import datetime
+import copy
 
 
 def validate(policy):
@@ -270,12 +271,8 @@ class YaPPL:
         # TODO: avoid updating an attribute with an already existing value
         #  aka 1. newRule with old + updated attribute values
         #      2. delete old Rule (aka set Exp_date and archive)
-        #  does not work as expected: new Values strangely pop up in archieved rules too
-        #  -> further debugging needed
-        print id(self.getRule(ruleID))
-        oldRule = dict(self.getRule(ruleID))
-        print id(oldRule)
-        print id(self.getRule(ruleID))
+#        oldRule = dict(self.getRule(ruleID))
+        oldRule = copy.deepcopy(self.getRule(ruleID))
         if len(permittedPurpose) > 0:
             for i in range(len(permittedPurpose)):
                 oldRule['Purpose']['permitted'].append(permittedPurpose[i])
