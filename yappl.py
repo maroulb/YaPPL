@@ -1,4 +1,8 @@
-"""Module to create, parse and evaluate YaPPL-Policies."""
+"""Module to create, parse and evaluate YaPPL-Policies.
+
+.. moduleauthor: Max-R. Ulbricht (@maroulb)
+
+"""
 
 import json
 import jsonschema
@@ -295,8 +299,8 @@ class YaPPL:
 
 #  </public_methods>
 
-#  ###### private methods, dont use !!! ######  #
-
+#  ###### private methods ######  #
+#  TODO: make them real private aka "__method()" without breaking parse()  #
     def isRuleUnique(self, rule):
         for i in range(len(self.__Preference)):
             if self.__Preference[i]['Purpose'] == rule['Purpose']:
