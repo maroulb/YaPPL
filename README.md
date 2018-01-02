@@ -28,20 +28,6 @@ Module to create, parse and evaluate YaPPL-Policies.
 ## class YaPPL
 Methods defined here:
 
-* archiveRule(self, ruleID):
-
-      Archive a Rule for potential audits.
-
-      arguments:
-      ruleID -- the ID of the rule to be archived
-
-* createPolicy(self):
-
-      Create a YaPPL compliant Policy in JSON format from the respective python object.
-
-      arguments:
-      none
-
 * getExcludedPurpose(self):
 
       Return ALL excluded Purposes.
@@ -102,3 +88,17 @@ Methods defined here:
       transformation -- [list] of transformation objects
 
       at least the ID and ONE updated Value should be present
+
+* createPolicy(self):
+
+      Create a YaPPL compliant Policy in JSON format from the respective python object.
+
+      arguments:
+      none
+
+* archiveRule(self, ruleID):
+
+      Archive a Rule for potential audits.
+
+      arguments:
+      ruleID -- the ID of the rule to be archived
